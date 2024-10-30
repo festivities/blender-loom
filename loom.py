@@ -5631,7 +5631,6 @@ class LOOM_OT_render_preset(AddPresetBase, bpy.types.Operator):
             if image_settings.file_format in ('OPEN_EXR', 'OPEN_EXR_MULTILAYER'):
                 preset_values += [
                                 'render.image_settings.exr_codec', 
-                                'render.image_settings.use_zbuffer',
                                 'render.image_settings.use_preview'
                                 ]
             if image_settings.file_format in ('TIFF'):
