@@ -5617,9 +5617,15 @@ class LOOM_OT_render_preset(AddPresetBase, bpy.types.Operator):
                             ]
         
         if preset_flags.include_passes:
+            cond = "use_"
+
             for prop in dir(context.view_layer):
-                if prop.startswith("use_"):
+                if prop.startswith(cond):
                     preset_values.append("context.view_layer.{}".format(prop))
+
+            for prop in dir(context.view_layer.eevee):
+                if prop.startswith(cond):
+                    preset_values.append("context.view_layer.eevee.{}".format(prop))
 
         if preset_flags.include_file_format:
             preset_values += [
